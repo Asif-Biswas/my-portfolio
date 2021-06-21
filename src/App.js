@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import { Route, Switch } from 'react-router';
 import './App.css';
+import About from './components/About';
+import Contact from './components/Contact';
+import Home from './components/Home';
+import Navigation from './components/Navigation';
+import Projects from './components/Projects';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="hide-scrollbar" style={{height:'100vh', width:'100vw', overflowY:'scroll', overflowX:'hidden'}}>
+      <Navigation/>
+      
+      <Switch>
+        <Route exact path='/'>
+          <Home/>
+        </Route>
+        <Route path='/about'>
+          <About/>
+        </Route>
+        <Route path='/projects'>
+          <Projects/>
+        </Route>
+        <Route path='/contact'>
+          <Contact/>
+        </Route>
+      </Switch>
     </div>
   );
 }
